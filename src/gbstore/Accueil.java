@@ -1,4 +1,3 @@
-
 package gbstore;
 
 import com.mysql.jdbc.PreparedStatement;
@@ -25,11 +24,12 @@ public class Accueil extends javax.swing.JFrame {
     ResultSet rs;
     DefaultTableModel dt;
     Statement st;
-            
+
     int id, prix, stock, nTotal;
     String nomlivre, categorie, auteur, description = "";
-    
+
     int menuState = 0;
+
     public Accueil() {
         initComponents();
         con = new JavaConnect().createConnection();
@@ -366,18 +366,17 @@ public class Accueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    if(menuState == 0){
-    jPanel5.setVisible(true);
-    menuState = 1;
-    }else{
-    jPanel5.setVisible(false);
-    menuState = 0;
-    }
+        if (menuState == 0) {
+            jPanel5.setVisible(true);
+            menuState = 1;
+        } else {
+            jPanel5.setVisible(false);
+            menuState = 0;
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -388,29 +387,27 @@ public class Accueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-            
+
         try {
             st = con.createStatement();
         } catch (SQLException ex) {
             Logger.getLogger(Accueil.class.getName()).log(Level.SEVERE, null, ex);
         }
-            dt = new DefaultTableModel();
-            
-            
-            dt.addColumn("id");
-            dt.addColumn("Nom livre");
-            dt.addColumn("Categorie");
-            dt.addColumn("Auteur");
-            dt.addColumn("Description");
-            dt.addColumn("Prix");
-            dt.addColumn("Stock");
-            jTable1.setModel(dt);
+        dt = new DefaultTableModel();
 
+        dt.addColumn("id");
+        dt.addColumn("Nom livre");
+        dt.addColumn("Categorie");
+        dt.addColumn("Auteur");
+        dt.addColumn("Description");
+        dt.addColumn("Prix");
+        dt.addColumn("Stock");
+        jTable1.setModel(dt);
 
-             try {
+        try {
             dt.setRowCount(0);
-                rs = st.executeQuery("select * from livres ");
-                
+            rs = st.executeQuery("select * from livres ");
+
             while (rs.next()) {
                 nTotal++;
                 id = rs.getInt("id");
@@ -420,18 +417,16 @@ public class Accueil extends javax.swing.JFrame {
                 description = rs.getString("description");
                 prix = rs.getInt("prix");
                 stock = rs.getInt("stock");
-                
+
                 Object[] clt = {id, nomlivre, categorie, auteur, description, prix, stock};
                 dt.addRow(clt);
-                System.out.println("Nombre Total de Livres : " + nTotal);
-              
+
             }
-            // TableEpl.setModel(dt);
+            System.out.println("Nombre Total de Livres : " + nTotal);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "erreur d'afficher la liste des clients\n" + e.getMessage());
         }
-
 
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
