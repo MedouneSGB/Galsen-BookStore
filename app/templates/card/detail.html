@@ -1,0 +1,121 @@
+{% extends 'layout/base.html' %}
+
+ {% block table %}
+    <div class="details">
+      <div class="item">
+          <span>Information du livre</span>
+          <a href="{{url_for('views.card')}}">
+                <div class="btn">Fermer</div>
+          </a>
+
+      </div>
+
+      <div class="dt">
+          <div class="item-dt">
+              <img src="{{book.image}}" alt="{{book.nomLivre}}">
+          </div>
+          <div class="item-dt">
+              <div class="val">
+                    <span>Titre :</span>
+                    <span>{{book.nomLivre}}</span>
+              </div>
+              <div class="val">
+                   <span>Auteur :</span>
+                    <span>{{book.author}}</span>
+              </div>
+              <div class="val">
+                    <span>Description :</span>
+                    <div class="descr">
+                        {{book.description}}
+                    </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  {%endblock %}
+
+
+  {%block style %}
+<style>
+    .details {
+        width: 100%;
+
+    }
+    .details .item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+         font-family: "Tiro Devanagari Hindi", serif;
+    }
+    .item span {
+        font-size: 24px;
+        color: white;
+    }
+    .item .btn {
+        border-radius: 15px;
+        background: #D9570E;
+        margin-top: 5px;
+        color: white;
+        width: 223px;
+        font-size: 24px;
+
+    }
+    .details .item-dt  img {
+        width: 243px;
+        padding: 0 20px;
+        margin-bottom: 10px;
+
+    }
+    .details .dt {
+        margin-top: 48px;
+         display: flex;
+
+
+    }
+    .item-dt .val span:nth-child(1){
+        font-size: 20px;
+        color: white;
+        font-family: "Tiro Devanagari Hindi", serif;
+
+    }
+
+    .item-dt .val span:nth-child(2) {
+         font-size: 20px;
+        color: white;
+        font-family: "Tiro Devanagari Hindi", serif;
+    }
+    .val .descr {
+        color: white;
+        font-family: "Tiro Devanagari Hindi", serif;
+         font-size: 18px;
+        padding: 0 20px;
+    }
+    .val {
+        padding: 15px;
+    }
+    .search-btn .child{
+        display: none;
+    }
+    .search-btn .child:nth-child(2){
+        display: none;
+    }
+    .elements .element .choice {
+         display: none;
+    }
+    .elements .element .card {
+         display: none;
+    }
+    .element .shop .item:nth-child(2) .btn{
+        height: 40px;
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .element .shop:nth-child(2){
+        width: 253px;
+    }
+
+</style>
+{%endblock %}

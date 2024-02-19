@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>
+    {%block title%}
+      Base
+    {%endblock %}
+  </title>
+
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static' , filename='css/style.css')}}" />
+   <!-- Include Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <!--Font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+
+
+
+</head>
+<body>
+  {%block content %}
+    <header>
+      <a href="#" id="toggle">
+          <img src="{{ url_for('static', filename='images/group.png') }}">
+      </a>
+      <div class="parent">
+           <div class="child">
+             <h1>Galsen BookStore</h1>
+           </div>
+           <div class="child">
+             <h2>Boutique</h2>
+           </div>
+      </div>
+    </header>
+
+    <!--Nav-->
+    {% include 'layout/nav.html' %}
+    {%block details %}
+    <div class="content">
+        <div class="search-btn">
+          <div class="child">
+              <input type="text" />
+
+          </div>
+          <div class="child">
+              <div type="submit">Rechercher</div>
+          </div>
+
+        </div>
+
+        <div class="elements">
+          <div class="element">
+            <div class="choice">
+              <h1>Choose a type</h1>
+            </div>
+            <div class="card">
+              <a href="{{url_for('views.card')}}">
+                  <span>
+                  <div href="#">Card</div>
+                </span>
+              </a>
+
+              <a href="{{url_for('views.table')}}">
+                <span>
+                 <div href="#">Line</div>
+              </span>
+              </a>
+
+
+            </div>
+             {% block test %}
+            <div class="tables">
+                {% block table %}
+                {% endblock %}
+            </div>
+              {%endblock %}
+          </div>
+          <div class="element">
+              <div class="shop">
+                  <div class="info">
+                      <span>Titre :</span>
+                      <span>La belle histoire de Leuk-le-Lièvre</span>
+                  </div>
+                  <div class="info">
+                       <span>Categorie :</span>
+                      <span>Conte</span>
+                  </div>
+                  <div class="info">
+                       <span>Prix :</span>
+                      <span>4000</span>
+                  </div>
+                  <div class="info">
+                      <div class="btn">Voir Plus</div>
+                      <div class="btn">Ajouter</div>
+                  </div>
+              </div>
+              <div class="shop">
+                  <div class="item">
+                      <span>Panier :</span>
+                      <span>1 element</span>
+                  </div>
+                  <div class="item">
+                      <div class="btn">Afficher Panier</div>
+                      <div class="btn">Vider</div>
+                  </div>
+                  <div class="item total">
+                      <div class="tt">Total</div>
+                      <div class="monnai">4000</div>
+                  </div>
+                  <div class="item recu">
+                      <div class="tt">Recu</div>
+                      <div class="monnai">10000</div>
+                  </div>
+                  <div class="item argent">
+                      <div class="tt">Monnaie</div>
+                      <div class="monnai">6000</div>
+                  </div>
+                  <div class="item">
+                      <div class="btn valider">Valider la vente</div>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+    </div>
+    {%endblock %}
+  {% endblock %}
+
+    {%block javascript%}
+      <script
+        type="text/javascript"
+        src="{{ url_for('static', filename='js/index.js') }}">
+
+      </script>
+      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% endblock %}
+
+{%block style %}
+
+{%endblock %}
+</body>
+</html>

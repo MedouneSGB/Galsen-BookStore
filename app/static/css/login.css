@@ -1,0 +1,42 @@
+.body {
+}
+h1 {
+    border: 1px solid red;
+}
+.container-fluide {
+    border: 1px solid yellow;
+    height: 100%;
+}
+.login {
+    width: 800px;
+    display: flex;
+    margin: 0 auto;
+
+}
+.login .child ,img{
+    height: 528px;
+    width: 400px;
+}
+.login .child:nth-child(2){
+}
+.child .item:nth-child(1) {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid red;
+}
+.child .item:nth-child(1) div{
+    background: #605E55;
+    width: 99px;
+    height: 2px;
+}
+.child .item:nth-child(1) span {
+    font-family: "Rampart One", sans-serif;
+    font-size: 24px;
+    color: #605E55;
+}
+.child .item:nth-child(2) h3 {
+    font-family: "Tiro Devanagari Hindi", sans-serif;
+    font-size: 23px;
+    color: #605E55;
+}

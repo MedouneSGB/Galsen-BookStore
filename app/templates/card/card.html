@@ -1,0 +1,24 @@
+{% extends 'layout/base.html' %}
+
+{% block table %}
+    <div class="cartes">
+         {% for book in books %}
+            <a href="{{ url_for('views.detail', card_id=book._id) }}">
+                <img class="carte" src="{{book.image}}" alt="images" style="width: 126px;" >
+            </a>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
+
+
+
+{%block style %}
+<style>
+    .content {
+        background: #F9BF21;
+        height: 160vh;
+    }
+</style>
+{%endblock %}

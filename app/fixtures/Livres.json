@@ -1,0 +1,83 @@
+[
+    {
+        "nomLivre": "La belle histoire de Leuk-le-Lièvre",
+        "categorie": "Conte",
+        "author": "Abdoulaye Sadji,Léopold Sédar Senghor",
+        "description": "Composée de plusieurs récits initiatiques et de contes populaires, La belle histoire de Leuk-le-Lièvre révèle l’intention profonde de ses auteurs, tous deux enseignants et militants de la Négritude : nous faire découvrir la puissante originalité des cultures et traditions africaines.",
+        "price": 4000,
+        "qteStock": 100,
+        "image": "http://127.0.0.1:5000/static/uploads/images/leuk.png"
+    },
+    {
+        "nomLivre": "Un chant écarlate",
+        "categorie": "Roman",
+        "author": "Mariama Bâ",
+        "description": "Un chant écarlate est l'histoire d’amour impossible entre deux étudiants idéalistes, une Française et un Sénégalais, dans le Dakar des années 1980, où l’apprentissage de l’autre, au-delà des frontières, des cultures et des traditions, s’avère difficile.",
+        "price": 3000,
+        "qteStock": 100,
+        "image": "http://127.0.0.1:5000/static/uploads/images/un-chant-ecarlate.jpg"
+    },
+    {
+          "nomLivre": "Le ventre de l'Atlantique",
+          "categorie": "Roman",
+          "author": "Fatou Diome",
+          "description": "Salie vit en France. Son frère, Madické, rêve de l'y rejoindre et compte sur elle. Mais comment lui expliquer la face cachée de l'immigration, lui qui voit la France comme une terre promise où réussissent les footballeurs sénégalais, où vont se réfugier ceux qui, comme Sankèle, fuient leur destin tragique?",
+          "price": 5000,
+          "qteStock": 20,
+          "image": "http://127.0.0.1:5000/static/uploads/images/ventre-de-atlantique.jpg"
+      },
+      {
+          "nomLivre": "Celles qui attendent",
+          "categorie": "Roman",
+          "author": "Fatou Diome",
+          "description": "Arame et Bougna, mères de Lamine et Issa, clandestins partis pour l’Europe, ne comptaient plus leurs printemps ; chacune était la sentinelle vouée et dévouée à la sauvegarde des siens, le pilier qui tenait la demeure sur les galeries creusées par l’absence. ",
+          "price": 5000,
+          "qteStock": 10,
+          "image": "http://127.0.0.1:5000/static/uploads/images/celles-qui-attend.jpg"
+      },
+      {
+            "nomLivre": "Oeuvre poétique",
+            "categorie": "Poésie",
+            "author": "Léopold Sédar Senghor",
+            "description": "Ce volume comprend l'œuvre poétique intégrale de Léopold Sedar Senghor : successivement Chants d'ombre, Hosties noires, Ethiopiques, Nocturnes, Lettres d'hivernage, Elégies majeures, Poèmes perdus (jusqu'alors inédits), ainsi que les Dialogues sur la poésie francophone et un ensemble de poèmes divers.",
+            "price": 4000,
+            "qteStock": 12,
+            "image": "http://127.0.0.1:5000/static/uploads/images/oeuvre-poetique.jpg"
+      },
+      {
+            "nomLivre": "Maïmouna",
+            "categorie": "Roman",
+            "author": "Abdoulaye Sadji",
+            "description": "Maïmouna est une enfant de l'Afrique paysanne, séduite puis finalement meurtrie par la grande ville. Jolie, innocente, rêveuse, Dakar en fera une victime. Elle reviendra panser ses blessures au pays, auprès de sa vieille mère, mieux armée pour consentir aux vertus des gens simples.",
+            "price": 3000,
+            "qteStock": 10,
+            "image": "http://127.0.0.1:5000/static/uploads/images/maimouna.jpg"
+      },
+      {
+            "nomLivre": "L'Aventure ambiguë",
+            "categorie": "Roman",
+            "author": "Cheikh Hamidou Kane",
+            "description": "De manière significative \\\"L'aventure ambiguë\\\", histoire d'un itinéraire spirituel, porte en sous-titre 'récit'. Ce qui frappe en effet le lecteur de ce livre, c'est le classicisme dû autant à la retenue du ton qu'à la portée universelle de la réflexion philosophique. ",
+            "price": 4000,
+            "qteStock": 10,
+            "image": "http://127.0.0.1:5000/static/uploads/images/aventure-ambiguë.jpg"
+      },
+      {
+            "nomLivre": "Impossible de grandir",
+            "categorie": "Roman",
+            "author": "Fatou Diome",
+            "description": "Salie est invitée à dîner chez des amis. Une invitation apparemment anodine mais qui la plonge dans la plus grande angoisse. Pourquoi est-ce si « impossible » pour elle d\\'aller chez les autres, de répondre aux questions sur sa vie, sur ses parents ?",
+            "price": 4500,
+            "qteStock": 20,
+            "image": "http://127.0.0.1:5000/static/uploads/images/impossible-de-grandir.jpg"
+      },
+      {
+            "nomLivre": "Les contes d\\'Amadou-Koumba",
+            "categorie": "Conte",
+            "author": "Birago Diop",
+            "description": "\\r\\nS\\'il avait le ventre derrière lui, ce ventre le mettrait dans un trou. S\\'il n\\'est que de vous nourrir, une seule femme suffit. Rendre un salut n\\'a jamais écorché la bouche. Demandez©vous à l\\'aveugle de vous affirmer si le coton est blanc ou si le corbeau est bien noir ?",
+            "price": 3000,
+            "qteStock": 50,
+            "image": "http://127.0.0.1:5000/static/uploads/images/les-contes-amadou-koumba.jpg"
+      }
+]

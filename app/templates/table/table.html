@@ -1,0 +1,104 @@
+{% extends 'layout/base.html' %}
+
+
+
+{% block table %}
+    <table class="">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Libellé</th>
+                <th scope="col">Catégorie</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            {% for book in books %}
+                <tr>
+                    <th scope="row">{{book._id}}</th>
+                    <td>{{book.nomLivre}}</td>
+                    <td>{{book.categorie}}</td>
+                    <td>{{book.price}}</td>
+                    <td>{{book.qteStock}}</td>
+                </tr>
+               <!-- <img src="{{book.image}}" alt="images" >-->
+            {% endfor %}
+
+             <tr class="hidden">
+                  <th class="id" scope="row">4</th>
+                <td>book.nomLivre</td>
+                <td>book.categorie</td>
+                <td>book.price</td>
+                <td>book.qteStock</td>
+            </tr>
+
+              <tr class="hidden0">
+                  <th class="id" scope="row">4</th>
+                <td>book.nomLivre</td>
+                <td>book.categorie</td>
+                <td>book.price</td>
+                <td>book.qteStock</td>
+            </tr>
+
+          <tr class="hidden">
+                  <th class="id" scope="row">4</th>
+                <td>book.nomLivre</td>
+                <td>book.categorie</td>
+                <td>book.price</td>
+                <td>book.qteStock</td>
+            </tr>
+          <tr class="hidden0">
+                  <th class="id" scope="row">4</th>
+                <td>book.nomLivre</td>
+                <td>book.categorie</td>
+                <td>book.price</td>
+                <td>book.qteStock</td>
+            </tr>
+          <tr class="hidden">
+                  <th class="id" scope="row">4</th>
+                <td>book.nomLivre</td>
+                <td>book.categorie</td>
+                <td>book.price</td>
+                <td>book.qteStock</td>
+            </tr>
+          <tr class="hidden0">
+                  <th class="id" scope="row">4</th>
+                <td>book.nomLivre</td>
+                <td>book.categorie</td>
+                <td>book.price</td>
+                <td>book.qteStock</td>
+            </tr>
+          <tr class="hidden">
+                  <th class="id" scope="row">4</th>
+                <td>book.nomLivre</td>
+                <td>book.categorie</td>
+                <td>book.price</td>
+                <td>book.qteStock</td>
+            </tr>
+          <tr class="hidden0">
+                  <th class="id" scope="row">4</th>
+                <td>book.nomLivre</td>
+                <td>book.categorie</td>
+                <td>book.price</td>
+                <td>book.qteStock</td>
+            </tr>
+          <tr class="hidden">
+                  <th class="id" scope="row">4</th>
+                <td>book.nomLivre</td>
+                <td>book.categorie</td>
+                <td>book.price</td>
+                <td>book.qteStock</td>
+            </tr>
+          <tr class="hidden0">
+                  <th class="id" scope="row">4</th>
+                <td>book.nomLivre</td>
+                <td>book.categorie</td>
+                <td>book.price</td>
+                <td>book.qteStock</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

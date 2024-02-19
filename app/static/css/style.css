@@ -1,0 +1,413 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+nav {
+     height: 100vh;
+     width: 108px;
+     position: fixed;
+     background-color: #DA9D00;
+    z-index: 99;
+
+
+}
+
+
+nav ul{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+}
+nav li {
+    list-style-type: none;
+
+}
+
+.power-off {
+    display: flex;
+    justify-content: center;
+}
+#toggleNavButton {
+    position: absolute;
+    right: 10%;
+}
+
+nav .content {
+
+
+}
+
+#toggle {
+    position: absolute;
+    z-index: 1;
+    left: 28px;
+    top:31px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+header {
+    position: absolute;
+    height: 18vh;
+    width: 100%;
+    background-color: #F9BF21;
+}
+.parent {
+    min-height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.child{
+    width: 50%;
+    min-height: 50px;
+
+}
+.parent .child:nth-child(1){
+    text-align: center;
+    font-family: "Rampart One", sans-serif;
+}
+.parent .child:nth-child(2){
+    text-align: center;
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+.child h1 {
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.parent .child:nth-child(2) h2{
+   font-family: "Ultra", serif;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.content {
+    padding-left: 28px;
+    padding-top: 18vh;
+    background: #F9BF21;
+    height: 135vh;
+
+}
+.content .search-btn {
+    margin-top: 34px;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+
+
+.search-btn .child:nth-child(1) input {
+    min-height: 59px;
+    width: 100%;
+    background: #282828;
+     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    outline: none;
+    border: none;
+    color: white;
+    padding-left: 20px;
+}
+.search-btn .child:nth-child(1) {
+    width: 80%;
+}
+
+.search-btn .child:nth-child(2) {
+    display: flex;
+    justify-content: flex-end;
+    min-height: 100%;
+    flex-wrap: wrap;
+}
+.search-btn .child:nth-child(2) div {
+    margin-right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 223px;
+    height: 59px;
+    background-color: #D9570E;
+    font-size: 24px;
+    font-family: "Tiro Devanagari Hindi", serif;
+    font-weight: 400;
+    border-radius: 7px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    color: white;
+
+}
+.elements {
+    display: flex;
+    margin-top: 29px;
+
+}
+.elements .element {
+     height: 40vh;
+}
+.elements .element:nth-child(1){
+     width: 70%;
+
+}
+.elements .element:nth-child(2){
+    width: 28%;
+    height: 90vh;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-end;
+
+
+}
+.element .shop {
+    width: 253px;
+    height: 229px;
+    background: #282828;
+    border-radius: 15px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+.shop .item .btn {
+    margin-bottom: 10px;
+}
+
+.element .shop:nth-child(1) {
+    color: white;
+    padding-left: 15px;
+    font-family: "Tiro Devanagari Hindi", serif;
+}
+
+
+.shop .info span:nth-child(2) {
+    color: #F9BF21;
+    font-size: 19px;
+     padding-left: 20px;
+}
+.shop .info span:nth-child(1) {
+    font-size: 20px;
+}
+
+.shop .info:last-child {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+
+.element .shop:nth-child(2) {
+    height: 300px;
+    padding-bottom: 10px;
+
+
+}
+.shop .item {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.item .monnai {
+    width: 123px;
+    height: 31px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F9BF21;
+    color: black;
+    font-family: "Tiro Devanagari Hindi", serif;
+    margin: 5px;
+}
+
+.item.total, .item.recu, .item.argent {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    align-items: center;
+}
+
+.shop .btn, .valider {
+    border-radius: 15px;
+    background: #D9570E;
+    color: white;
+
+}
+.shop .valider {
+     height: 50px;
+    font-family: "Tiro Devanagari Hindi", serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 19px;
+    width: 90%;
+}
+
+
+
+
+
+
+
+
+
+
+
+.elements .element .choice h1 {
+  font-family: "Rampart One", sans-serif;
+  font-weight: 400;
+    font-size: 27px;
+     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+.element .card {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 25%;
+    align-items: center;
+    background: #F9BF21;
+    border: none;
+
+
+}
+.element .card span {
+    min-height: 50px;
+    width: 104px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    background: #282828;
+    box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.25);
+
+}
+.element .card div {
+    min-height: 46px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    background: #F9BF21;
+
+}
+.element .card a {
+    text-decoration: none;
+    color: black;
+     font-family: "Ultra", serif;
+
+}
+.card a:hover {
+    color: white;
+}
+
+.tables {
+    margin-top: 32px;
+    background: #282828;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 420px;
+    border-radius: 15px;
+    box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.25);
+
+
+}
+
+
+.tables table {
+    min-width: 95%;
+
+    border-collapse: separate;
+
+    min-height: 388px;
+    margin: 17px;
+    background: #282828;
+
+
+
+
+
+}
+
+
+table th, td {
+    text-align: center;
+    color: white;
+    border: 1px solid black;
+    font-family: "Tiro Devanagari Hindi", serif;
+    font-size: 14px;
+
+  }
+
+table  tr:nth-child(even) {
+    background-color: #434343;
+    height: 26px;
+
+
+ }
+table tr:nth-child(odd) {
+background-color: #666464;
+    height: 26px;
+
+ }
+
+table thead tr th {
+    background-color: #434343;
+    color: #DA9D00;
+    font-family: "Tiro Devanagari Hindi", serif;
+    font-size: 14px;
+
+}
+
+.hidden td {
+   color: #666464;
+}
+
+.hidden0 td,.id {
+
+   color: #434343;
+}
+.hidden .id {
+    color: #666464;
+    font-family: "Tiro Devanagari Hindi", serif;
+    font-size: 19px;
+}
+
+
+.cartes {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+
+}
+
+.cartes a {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    width: 200px;
+}
+.cartes a img {
+ width: 200px;
+}
+
+
+
+
+
+
