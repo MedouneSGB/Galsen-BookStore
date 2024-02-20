@@ -252,15 +252,6 @@ header {
 }
 
 
-
-
-
-
-
-
-
-
-
 .elements .element .choice h1 {
   font-family: "Rampart One", sans-serif;
   font-weight: 400;
@@ -274,7 +265,7 @@ header {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 25%;
+    width: 28%;
     align-items: center;
     background: #F9BF21;
     border: none;

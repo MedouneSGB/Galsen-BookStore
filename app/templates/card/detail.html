@@ -4,9 +4,17 @@
     <div class="details">
       <div class="item">
           <span>Information du livre</span>
+          {%if current_user.is_authenticated%}
+                {%block btn %}
+                    <a href="{{url_for('views.update',card_id=book._id)}}" class="edit">
+                        <div class="btn">Edit</div>
+                   </a>
+                {%endblock %}
+          {%endif%}
           <a href="{{url_for('views.card')}}">
                 <div class="btn">Fermer</div>
           </a>
+
 
       </div>
 
@@ -116,6 +124,11 @@
     .element .shop:nth-child(2){
         width: 253px;
     }
+    .edit {
+        margin-left: 120px;
+    }
 
 </style>
 {%endblock %}
+
+{%block js %}{%endblock %}

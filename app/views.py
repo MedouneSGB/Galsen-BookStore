@@ -1,6 +1,8 @@
-from flask import render_template, redirect, request, url_for, session, Blueprint
+from flask import render_template, Blueprint, request
+from flask_login import login_required
 
-from app.models import Livres
+from app import db
+from app.models import Livres, User
 
 views = Blueprint('views', __name__, url_prefix="/")
 
@@ -29,23 +31,21 @@ def table():
     return render_template("table/table.html", books=books)
 
 
-@views.route("/login", methods=["POST", "GET"])
-def login():
-    """
+@views.route("/card/<int:card_id>/edit", methods=["POST", "GET"])
+@login_required
+def update(card_id: int):
+    card_detail = Livres.query.get(card_id)
     if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["password"]
-        session["username"] = username
-        return redirect(url_for("user"))
-    else:
-        if "username" in session:
-            return redirect(url_for("user"))
-        return render_template("login/login.html")
-    """
-    return render_template("login/login.html")
+        nom = request.form["nomLivre"]
+        author = request.form["author"]
+        description = request.form["description"]
 
+        card_detail.nomLivre = nom
+        card_detail.author = author
+        card_detail.description = description
+        db.session.commit()
 
-@views.route("/logout")
-def logout():
-    session.pop("username", None)
-    return redirect(url_for("login"))
+        print(f"{nom} - {description} {author}")
+        return render_template("card/detail.html", book=card_detail)
+
+    return render_template("card/edit.html", book=card_detail)

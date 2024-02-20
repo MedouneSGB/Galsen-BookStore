@@ -1,3 +1,4 @@
+/*
 .body {
 }
 h1 {
@@ -39,4 +40,360 @@ h1 {
     font-family: "Tiro Devanagari Hindi", sans-serif;
     font-size: 23px;
     color: #605E55;
+
+}
+.child .item:nth-child(3){
+    border: 1px solid navy;
+
+    padding: 26px;
+}
+.child .item:nth-child(3) input {
+
+    margin: 26px;
+}*/
+
+
+
+:root {
+    --primary: #6B43FF;
+    --primary-light: #6667B0;
+    --violet-light: #B492FD;
+    --secondary: #1D1D1D;
+    --white: #F4F1FF;
+    --text: #323760;
+    --info-side-background: #ad4ef5;
+}
+
+body {
+    font-size: 16px;
+    background: var(--info-side-background);
+    font-family: Mulish, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.socials-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.socials-row img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.socials-row > a {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    min-height: 1.875rem;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 1rem;
+    color: var(--text);
+    border: 1px solid var(--primary-light);
+    font-weight: 700;
+}
+
+.socials-row > a:hover {
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.divider {
+    display: flex;
+    flex-direction: row;
+    color: var(--secondary);
+    gap: 1rem;
+    align-items: center;
+}
+
+.divider-line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--secondary);
+    opacity: .2;
+}
+
+.form-wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    max-width: 75rem;
+}
+
+.form-side {
+    padding: 11.625rem 2rem 3rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    background-color: white;
+}
+
+.info-side {
+    height: 100vh;
+    padding: 15.5rem 0.75rem 0.5rem 0.75rem;
+    color: #401B3D;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background: linear-gradient(92.15deg,
+        var(--violet-light) 30.13%,
+        var(--info-side-background) 95.43%);
+}
+
+.info-side img {
+    max-width: 24rem;
+    z-index: 1;
+}
+
+.welcome-message {
+    max-width: 24rem;
+}
+
+.logo {
+    display: block;
+    height: 2.5rem;
+    position: absolute;
+    top: 1.125rem;
+    left: 1.125rem;
+}
+
+.my-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    position: relative;
+    gap: 1rem;
+    max-width: 30rem;
+    min-width: 18rem;
+    width: 100%;
+    padding: 3rem 2rem;
+    height: fit-content;
+    box-shadow:
+        rgba(100, 100, 111, 0.2)
+        0px 7px 29px 0px;
+}
+
+.form-welcome {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.form-welcome-row {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-welcome-row h1 {
+    font-size: 1.6rem;
+}
+
+.my-form__button {
+    background-color: var(--primary);
+    color: white;
+    white-space: nowrap;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    line-height: 3.125rem;
+    outline: none;
+    font-size: 1.125rem;
+    letter-spacing: .025em;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 800;
+    min-height: 3.125rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 10px rgba(0,0,0,.15);
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+}
+
+.my-form__actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--secondary);
+    gap: 1rem;
+    margin-top: 0.5rem;
+    font-size: smaller;
+}
+
+.my-form__actions a {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.my-form__actions a:first-child {
+    text-align: left;
+}
+
+
+.my-form__actions a:last-child {
+    text-align: right;
+}
+
+.my-form__actions a:hover {
+    text-decoration: underline;
+}
+
+.my-form__row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.my-form__signup {
+    display: flex;
+    justify-content: center;
+}
+
+.my-form__signup a {
+    color: var(--primary);
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 1.125rem;
+}
+
+.my-form__signup a:hover {
+    text-decoration: underline;
+}
+
+.text-field input {
+    color: var(--secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    max-width: 100%;
+    width: 100%;
+    height: 3rem;
+    letter-spacing: .03rem;
+    border: 1px solid var(--secondary);
+    background-color: transparent;
+    outline: none;
+    transition: .25s;
+    border-radius: 0.5rem;
+    text-indent: 1.25rem;
+    margin-top: 0.25rem;
+}
+
+.text-field label:focus-within  {
+    color: var(--primary);
+}
+
+.text-field {
+    position: relative;
+}
+
+.text-field svg {
+    position: absolute;
+    right: -0.125rem;
+    bottom: -0.25rem;
+    width: 2rem;
+    height: 2rem;
+    transform: translate(-50%,-50%);
+    transform-origin: center;
+}
+
+.text-field input:focus {
+    border: 1px solid var(--primary);
+}
+
+
+.text-field input:focus + svg {
+    stroke: var(--primary);
+}
+
+.text-field label {
+    color: var(--secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: .03rem;
+    z-index: 10;
+}
+
+@media (max-width: 840px) {
+    .form-wrapper {
+        grid-template-columns: 1fr;
+        height: 100vh;
+    }
+
+    .info-side {
+        display: none;
+        padding: 3rem 3rem 3rem 2rem;
+    }
+}
+.h3 {
+    font-family: "Tiro Devanagari Hindi", sans-serif;
+    font-size: 23px;
+    color: #605E55;
+}
+.divider {
+      font-family: "Rampart One", sans-serif;
+    font-size: 24px;
+    color: #605E55;
+}
+.mockup {
+}
+.info-side {
+    border: 1px solid green;
+    height:528px;
+    transform: scale(0.8);
+
+}
+.info-side img {
+    height: 100%;
+
+}
+.form-wrapper {
+    /*background: #230303;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background: #FDCD01;
+}
+.form-side {
+
+}
+.logo {
+     font-family: "Rampart One", sans-serif;
+    font-size: 32px;
+    color: #605E55;
+}
+
+.text-field {
+    font-family: "Tiro Devanagari Hindi", sans-serif;
+}
+.my-form__actions a {
+    font-family: "Tiro Devanagari Hindi", sans-serif;
+}
+
+.my-form__button {
+    font-family: "Roboto Light", sans-serif;
+}
+
+.vvv {
+    color:red;
 }

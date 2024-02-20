@@ -1,0 +1,181 @@
+{% extends 'card/card.html' %}
+
+{% block table %}
+<div class="details">
+
+    <div class="item">
+
+        <span>Information du livre</span>
+        {%block btn %}
+            <a href="{{url_for('views.detail',card_id=book._id)}}" class="edit">
+                <div class="btn">Annuler</div>
+           </a>
+                {%endblock %}
+        <a href="{{url_for('views.card')}}">
+            <div class="btn">Fermer</div>
+        </a>
+
+
+    </div>
+
+    <div class="dt">
+        <div class="item-dt">
+                <img src="{{book.image}}" alt="{{book.nomLivre}}">
+        </div>
+        <form action="{{ url_for('views.update', card_id=book._id) }}" method="POST">
+
+            <div class="item-dt">
+                <div class="val">
+                    <span>Titre :</span>
+                    <input type="text" name="nomLivre" value="{{ book.nomLivre }}" class="input-nomLivre">
+                </div>
+                <div class="val">
+                    <span>Auteur :</span>
+                    <input type="text" name="author" value="{{ book.author }}" class="input-author">
+                </div>
+                <div class="val">
+                    <span>Description :</span>
+                    <textarea name="description" class="input-description">{{ book.description }}</textarea>
+                </div>
+                <button type="submit" class="my-form__button" >
+                        Enregistrer
+                </button>
+
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block style %}
+<style>
+    .details {
+        width: 100%;
+    }
+
+    .details .item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        font-family: "Tiro Devanagari Hindi", serif;
+    }
+
+    .item span {
+        font-size: 24px;
+        color: white;
+    }
+
+    .item .btn {
+        border-radius: 15px;
+        background: #D9570E;
+        margin-top: 5px;
+        color: white;
+        width: 223px;
+        font-size: 24px;
+    }
+
+    .details .item-dt img {
+        width: 243px;
+        padding: 0 20px;
+        margin-bottom: 10px;
+    }
+
+    .details .dt {
+        margin-top: 48px;
+        display: flex;
+    }
+
+    .val span:nth-child(1) {
+        font-size: 20px;
+        color: white;
+        font-family: "Tiro Devanagari Hindi", serif;
+    }
+
+    .val span:nth-child(2) {
+        font-size: 20px;
+        color: white;
+        font-family: "Tiro Devanagari Hindi", serif;
+    }
+
+    .val .descr {
+        color: white;
+        font-family: "Tiro Devanagari Hindi", serif;
+        font-size: 18px;
+        padding: 0 20px;
+    }
+
+    .val {
+        padding: 15px;
+    }
+
+    .search-btn .child {
+        display: none;
+    }
+
+    .search-btn .child:nth-child(2) {
+        display: none;
+    }
+
+    .elements .element .choice {
+        display: none;
+    }
+
+    .elements .element .card {
+        display: none;
+    }
+
+    .element .shop .item:nth-child(2) .btn {
+        height: 40px;
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .element .shop:nth-child(2) {
+        width: 253px;
+    }
+
+    .edit {
+        margin-left: 120px;
+    }
+
+    textarea {
+        width: 100%;
+        height: 15vh;
+    }
+    form {
+        width: 90%;
+    }
+
+    .my-form__button {
+    background-color: #D9570E;
+    color: white;
+    white-space: nowrap;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    line-height: 3.125rem;
+    outline: none;
+    font-size: 1.125rem;
+    letter-spacing: .025em;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 800;
+    min-height: 3.125rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 10px rgba(0,0,0,.15);
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+        margin-bottom: 5px;
+}
+
+
+</style>
+{% endblock %}
+
+{% block js %}{% endblock %}

@@ -23,10 +23,12 @@
             <img src="{{ url_for('static', filename='images/params.png') }}">
           </a></li>
 
-          <li class="power-off"><a href="#">
+          <li class="power-off"><a href="{{url_for('auth.logout')}}">
              <img src="{{ url_for('static', filename='images/power.png') }}">
         </a></li>
 
 
     </ul>
   </nav>
+
+

@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,10 +6,11 @@
   <title>Login</title>
 
   <link type="text/css" rel="stylesheet" href="{{ url_for('static' , filename='css/login.css')}}" />
-   <!-- Include Bootstrap CSS -->
+    Include Bootstrap CSS
+
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-  <!--Font-->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
@@ -60,4 +62,154 @@
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+</html>
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{%block titlePage %} Login {%endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Mulish&display=swap"
+            rel="stylesheet"
+            type='text/css'
+        >
+         <link type="text/css" rel="stylesheet" href="{{ url_for('static' , filename='css/login.css')}}" />
+        <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="form-wrapper">
+
+            <div class="form-side">
+
+                <a href="#" title="Logo">
+                     <h3 class="logo">GalsenBook</h3>
+
+                </a>
+
+            {% block form %}
+                <form class="my-form" method="POST">
+                   <div class="form-welcome-row">
+                       {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, msg in messages %}
+                                    {% if category == 'error' %}
+                                        <h1 class="alert alert-danger alter-dismisable fade show" role="alert">{{ msg }}</h1>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                   </div>
+                    <!--
+                    <div class="form-welcome-row">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% if category== 'error' %}
+                                    {% for category, msg in messages%}
+                                        <h1 class="alert alert-danger alter-dismisable fade show" role="alert"> {{msg}} </h1>
+                                    {% endfor%}
+                                {% endif %}
+                            {% endif %}
+
+                        {% endwith %}
+                    </div>-->
+                    <!--
+                    <div class="socials-row">
+                        <a href="#" title="Use Google">
+                            <img src="assets/google.png" alt="Google">Use Google
+                        </a>
+                        <a href="#" title="Use Apple">
+                            <img src="assets/apple.png" alt="Apple"> Use Apple
+                        </a>
+                    </div>
+                    -->
+                    <div class="divider">
+                        <div class="divider-line"></div> Login <div class="divider-line"></div>
+                    </div>
+
+                         <h2 class="h3">Nous sommes heureux de vous revoir !</h2>
+                        <div class="text-field">
+                            <label for="email">Email:
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    autocomplete="off"
+                                    placeholder="Your Email"
+                                    required
+                                >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                >
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+                                    <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28"></path>
+                                </svg>
+                            </label>
+                        </div>
+                        <div class="text-field">
+                            <label for="password">Confirm Password:
+                                <input
+                                    id="password"
+                                    type="password"
+                                    name="password"
+                                    placeholder="Your Password"
+                                    title="Minimum 6 caractères avec
+                                        au moins 1 alphabet et 1 chiffre"
+                                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
+                                    required
+                                >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path>
+                                    <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+                                    <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
+                                </svg>
+                            </label>
+                        </div>
+
+                    <button type="submit" class="my-form__button" style="background: #F9BF21;">
+                        Login
+                    </button>
+                    <div class="my-form__actions">
+                        <a href="#" title="Reset Password" style="color: #F9BF21;">
+                            Reset Password
+                        </a>
+                        <a href="{{url_for('auth.inscription')}}" title="Create Account" style="color: #F9BF21;">
+                            Don't have an account?
+                        </a>
+                    </div>
+                </form>
+            {%endblock %}
+
+            </div>
+            <div class="info-side" style="background: #230303;">
+                <img src="{{url_for('static', filename='images/cover.png')}}" alt="Mock" class="mockup">
+            </div>
+
+        </div>
+         <script type="text/javascript" src="{{ url_for('static', filename='js/login.js') }}"></script>
+    </body>
 </html>

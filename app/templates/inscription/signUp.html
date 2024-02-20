@@ -1,0 +1,139 @@
+{% extends 'login/login.html' %}
+
+
+
+{%block titlePage %}
+    Inscription
+{%endblock %}
+
+{%block form %}
+
+
+
+    <form class="my-form" method="POST">
+                    <div class="form-welcome-row">
+                       {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, msg in messages %}
+                                    {% if category == 'error' %}
+                                        <h3 class="alert alert-danger alter-dismisable fade show text-danger vvv" role="alert">{{ msg }}</h3>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                   </div>
+                    <!--
+                    <div class="socials-row">
+                        <a href="#" title="Use Google">
+                            <img src="assets/google.png" alt="Google">Use Google
+                        </a>
+                        <a href="#" title="Use Apple">
+                            <img src="assets/apple.png" alt="Apple"> Use Apple
+                        </a>
+                    </div>
+                    -->
+                    <div class="divider">
+                        <div class="divider-line"></div> Inscription <div class="divider-line"></div>
+                    </div>
+
+                         <h2 class="h3">Inscrivez vous</h2>
+
+                         <div class="text-field">
+
+                            <label for="username">Username:
+                                <input
+                                    type="text"
+                                    id="username"
+                                    name="username"
+                                    autocomplete="off"
+                                    placeholder="Your Username"
+                                    required
+                                >
+
+
+                                <svg width="24" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="6" r="4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                            </label>
+                        </div>
+
+                        <div class="text-field">
+
+                            <label for="email">Email:
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    autocomplete="off"
+                                    placeholder="Your Email"
+                                    required
+                                >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                >
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+                                    <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28"></path>
+                                </svg>
+                            </label>
+                        </div>
+                        <div class="text-field">
+                            <label for="password1">Password:
+                                <input
+                                    id="password1"
+                                    type="password"
+                                    name="password1"
+                                    placeholder="Your Password"
+                                    title="Minimum 6 caractères avec
+                                        au moins 1 alphabet et 1 chiffre"
+                                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
+                                    required
+                                >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path>
+                                    <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+                                    <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
+                                </svg>
+                            </label>
+                        </div>
+                        <div class="text-field">
+                            <label for="password2">Confirm Your Password:
+                                <input
+                                    id="password2"
+                                    type="password"
+                                    name="password2"
+                                    placeholder="Confirm your Password"
+                                    title="Minimum 6 caractères avec
+                                        au moins 1 alphabet et 1 chiffre"
+                                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
+                                    required
+                                >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path>
+                                    <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+                                    <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
+                                </svg>
+                            </label>
+                        </div>
+
+
+                    <button type="submit" class="my-form__button" style="background: #F9BF21;">
+                        Inscription
+                    </button>
+                    <div class="my-form__actions">
+
+                        <a href="{{url_for('auth.login')}}" title="Create Account" style="color: #F9BF21;">
+                            Already have an account?
+                        </a>
+                    </div>
+                </form>
+{% endblock %}
+
