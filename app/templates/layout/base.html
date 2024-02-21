@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <title>
     {%block title%}
-      Base
+      Home Page
     {%endblock %}
   </title>
 
   <link type="text/css" rel="stylesheet" href="{{ url_for('static' , filename='css/style.css')}}" />
    <!-- Include Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
 
   <!--Font-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,12 +26,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='css/logout.css') }}">
 
-
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 
 </head>
 <body>
-  {%block content %}
+
     <header>
       <a href="#" id="toggle">
           <img src="{{ url_for('static', filename='images/group.png') }}">
@@ -44,15 +46,22 @@
            </div>
       </div>
     </header>
-
     <!--Nav-->
     {% include 'layout/nav.html' %}
+    {%block content %}
+
+
     {%block details %}
     <div class="content">
         <div class="search-btn">
           <div class="child">
-              <input type="text" />
+              {%block inputSearch %}
 
+                <form action="{{ url_for('views.search') }}" method="GET">
+                    <input type="text" name="q"  hx-trigger="keyup changed delay:500ms" hx-target="books"/>
+                </form>
+
+                {%endblock %}
           </div>
           <div class="child">
               <div type="submit">Rechercher</div>
@@ -139,7 +148,7 @@
   {% endblock %}
 
     {%block javascript%}
-     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+
       <script
         type="text/javascript"
         src="{{ url_for('static', filename='js/index.js') }}">
@@ -152,11 +161,17 @@
 
       </script>
 
+         <script
+            type="text/javascript"
+            src="{{ url_for('static', filename='js/logout.js') }}">
+
+      </script>
 
       <script src="https://kit.fontawesome.com/a076d05399.js"></script>
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     {% endblock %}
 
 

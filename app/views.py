@@ -1,5 +1,5 @@
 from flask import render_template, Blueprint, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 from app import db
 from app.models import Livres, User
@@ -49,3 +49,21 @@ def update(card_id: int):
         return render_template("card/detail.html", book=card_detail)
 
     return render_template("card/edit.html", book=card_detail)
+
+
+@views.route("params", methods=["POST", "GET"])
+def params():
+    return render_template("params/params.html")
+
+
+@views.route("/card/search", methods=["POST", "GET"])
+def search():
+    q = request.args.get("q")
+    print(q)
+    if q:
+        q = q.strip()
+        images = Livres.query.filter(Livres.nomLivre.ilike(f'%{q}%') | Livres.author.ilike(f'%{q}%') | Livres.categorie.ilike(f'%{q}%'))
+        return render_template("card/search.html", books=images, query=q)
+
+    images = Livres.query.filter(Livres.image is not None).all()
+    return render_template("card/card.html", books=images, query=q)

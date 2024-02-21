@@ -7,7 +7,7 @@
             <img src="{{ url_for('static', filename='images/group.png') }}">
           </a>
 
-           <li><a href="#">
+           <li><a href="{{ url_for('views.card') }}">
             <img src="{{ url_for('static', filename='images/home.png') }}">
           </a></li>
 
@@ -23,9 +23,11 @@
             <img src="{{ url_for('static', filename='images/params.png') }}">
           </a></li>
 
-          <li class="power-off"><a href="{{url_for('auth.logout')}}">
+
+          <li class="power-off"><a href="{{url_for('views.params')}}">
              <img src="{{ url_for('static', filename='images/power.png') }}">
         </a></li>
+
 
 
     </ul>

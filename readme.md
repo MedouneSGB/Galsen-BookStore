@@ -1,3 +1,17 @@
+Implement search button with htmx and Logout template 
+</br>
+!["Video Text](https://www.youtube.com/embed/MnrWuJeCA7s)
+
+<h3>Parametre page when not connected</h3>
+<img src="vid/not-connected1.png">
+<img src="vid/not-connected1.png">
+<br/>
+
+<h3>Parameter page when User is connected</h3>
+<img src="vid/connected-1.png">
+<img src="vid/connected-2.png">
+<br/>
+
 <h3>Sign up page</h3>
 <img src="vid/inscription.png">
 

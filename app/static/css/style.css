@@ -117,9 +117,13 @@ header {
     border: none;
     color: white;
     padding-left: 20px;
+
 }
 .search-btn .child:nth-child(1) {
-    width: 80%;
+    width: 70%;
+    transform: translateX(-3%);
+
+
 }
 
 .search-btn .child:nth-child(2) {
@@ -127,10 +131,9 @@ header {
     justify-content: flex-end;
     min-height: 100%;
     flex-wrap: wrap;
+    width: 20%;
 }
 .search-btn .child:nth-child(2) div {
-    margin-right: 30px;
-    display: flex;
     justify-content: center;
     align-items: center;
     width: 223px;
@@ -142,6 +145,7 @@ header {
     border-radius: 7px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     color: white;
+    display: none;
 
 }
 .elements {
