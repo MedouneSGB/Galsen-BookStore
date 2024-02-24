@@ -8,6 +8,7 @@
     {%endblock %}
   </title>
 
+
   <link type="text/css" rel="stylesheet" href="{{ url_for('static' , filename='css/style.css')}}" />
    <!-- Include Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +30,7 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='css/logout.css') }}">
 
   <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-
+   {%block keus %} {%endblock%}
 </head>
 <body>
 
@@ -43,13 +44,15 @@
            </div>
            <div class="child">
              <h2>Boutique</h2>
+
            </div>
+
       </div>
+
     </header>
     <!--Nav-->
     {% include 'layout/nav.html' %}
     {%block content %}
-
 
     {%block details %}
     <div class="content">
@@ -63,9 +66,10 @@
 
                 {%endblock %}
           </div>
+          <!--
           <div class="child">
               <div type="submit">Rechercher</div>
-          </div>
+          </div>-->
 
         </div>
 
@@ -74,21 +78,24 @@
             <div class="choice">
               <h1>Choose a type</h1>
             </div>
+
+
+
             <div class="card">
-              <a href="{{url_for('views.card')}}">
-                  <span>
-                  <div href="#">Card</div>
-                </span>
-              </a>
+
+                  <a href="{{url_for('views.card')}}">
+                      <span>
+                      <div href="#">Card</div>
+                    </span>
+                  </a>
 
               <a href="{{url_for('views.table')}}">
                 <span>
                  <div href="#">Line</div>
               </span>
               </a>
-
-
             </div>
+
              {% block test %}
             <div class="tables">
                 {% block table %}
@@ -96,6 +103,7 @@
             </div>
               {%endblock %}
           </div>
+          <!--
           <div class="element">
               <div class="shop">
                   <div class="info">
@@ -141,6 +149,7 @@
                   </div>
               </div>
           </div>
+           -->
         </div>
 
     </div>
@@ -171,6 +180,9 @@
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    {%block njs%}
+    {%endblock%}
 
     {% endblock %}
 

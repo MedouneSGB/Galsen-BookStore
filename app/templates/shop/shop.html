@@ -1,0 +1,216 @@
+{% extends 'layout/base.html' %}
+
+{%block keus %}
+        <!-- Bootstrap Css -->
+        <link href="{{url_for('static' ,filename='css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="{{url_for('static' ,filename='css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="{{url_for('static' ,filename='css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+
+        <!-- App js -->
+        <script src="{{url_for('static' ,filename='js/plugin.js')}}"></script>
+
+{%endblock%}
+
+
+
+
+
+{%block content %}
+ <body data-sidebar="dark">
+    <div id="layout-wrapper">
+           <div class="main-content" style="padding-top: 100px; margin-left: 2px;" >
+                <div class="page-content">
+                    <div class="container-fluid">
+                        <div class="row" >
+                         <div class="col-xl-8">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table align-middle mb-0 table-nowrap">
+                                            <thead class="table-light" >
+                                                <tr>
+                                                    <th>Image</th>
+                                                    <th>Libelle</th>
+                                                    <th>Prix</th>
+                                                    <th>Quantité</th>
+                                                    <th colspan="2">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% if books %}
+                                                    {% for book in books %}
+                                                        <tr class="product">
+                                                            <td>
+                                                                <img src="{{book.image}}" alt="product-img" title="product-img" class="avatar-md">
+                                                            </td>
+
+                                                            <td>
+                                                                <h5 class="font-size-14 text-truncate"><a href="/ecommerce/product-detail/" class="text-dark">{{book.nomLivre}}</a></h5>
+                                                                <p class="mb-0">Auteur : <span class="fw-medium">{{book.author}}</span></p>
+                                                            </td>
+
+                                                            <td><span class="product-price">{{book.price}}</span> FCFA</td>
+                                                            <td>
+                                                                <div class="me-3" style="width: 120px;">
+                                                                    <div class="input-group  bootstrap-touchspin bootstrap-touchspin-injected">
+                                                                        <input type="text" value="{{book._id}}" class="product-quantity form-control" name="demo_vertical_{{book._id}}}" />
+
+                                                                          <span class="input-group-addon bootstrap-touchspin-vertical-button-wrapper">
+                                                                            <span class="input-group-btn-vertical">
+                                                                              <button  tabindex="-1" class="btn btn-primary bootstrap-touchspin-up increaseQty" type="button">+</button>
+                                                                              <button  tabindex="-1" class="btn btn-primary bootstrap-touchspin-down decreaseQty" type="button">−</button>
+                                                                            </span>
+                                                                          </span>
+
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <td>FCFA <span class="product-line-price">{{book.price}}</span></td>
+                                                            <td>
+                                                                <div class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Remove" data-bs-original-title="Remove">
+                                                                    <a href="{{url_for('views.remove_book', card_id=book._id)}}" data-bs-toggle="modal" class="action-icon text-danger"> <i class="mdi mdi-trash-can font-size-18"></i></a>
+                                                                </div>
+                                                            </td>
+
+                                                        </tr>
+                                                    {%endfor%}
+                                                {%endif%}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col-sm-6">
+                                            <a href="{{url_for('views.card')}}" class="btn btn-secondary">
+                                                <i class="mdi mdi-arrow-left me-1"></i> Continue Shopping </a>
+                                        </div> <!-- end col -->
+                                        <div class="col-sm-6">
+                                            <div class="text-sm-end mt-2 mt-sm-0">
+                                                <a href="/ecommerce/checkout/" class="btn btn-success">
+                                                    <i class="mdi mdi-cart-arrow-right me-1"></i> Checkout </a>
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row-->
+                                </div>
+                            </div>
+                        </div>
+                             <div class="col-xl-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-4">Card Details</h5>
+
+                                    <div class="card bg-primary text-white visa-card mb-0">
+                                        <div class="card-body">
+                                            <div>
+                                                <i class="bx bxl-visa visa-pattern"></i>
+
+                                                <div class="float-end">
+                                                    <i class="bx bxl-visa visa-logo display-3"></i>
+
+                                                </div>
+
+                                                <div>
+                                                    <i class="bx bx-chip h1 text-warning"></i>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-5">
+                                                <div class="col-4">
+                                                    <p>
+                                                        <i class="fas fa-star-of-life m-1"></i>
+                                                        <i class="fas fa-star-of-life m-1"></i>
+                                                        <i class="fas fa-star-of-life m-1"></i>
+                                                    </p>
+                                                </div>
+                                                <div class="col-4">
+                                                    <p>
+                                                        <i class="fas fa-star-of-life m-1"></i>
+                                                        <i class="fas fa-star-of-life m-1"></i>
+                                                        <i class="fas fa-star-of-life m-1"></i>
+                                                    </p>
+                                                </div>
+                                                <div class="col-4">
+                                                    <p>
+                                                        <i class="fas fa-star-of-life m-1"></i>
+                                                        <i class="fas fa-star-of-life m-1"></i>
+                                                        <i class="fas fa-star-of-life m-1"></i>
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-5">
+                                                <h5 class="text-white float-end mb-0">12/22</h5>
+                                                <h5 class="text-white mb-0">Nouha404</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-3">Order Summary</h4>
+
+                                    <div class="table-responsive">
+                                        <table class="table mb-0">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Total général :</td>
+                                                    <td id="cart-subtotal"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Réduction : </td>
+                                                    <td id="cart-discount">-</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Frais de livraison :</td>
+                                                    <td id="cart-shipping"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Impôt estimé (12.5%) :</td>
+                                                    <td id="cart-tax"></td>
+                                                </tr>
+                                                <tr class="bg-light">
+                                                    <th>Total :</th>
+                                                    <th id="cart-total"></th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- end table-responsive -->
+                                </div>
+                            </div>
+                            <!-- end card -->
+                        </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+    </div>
+
+ </body>
+
+ {%endblock %}
+
+
+
+{% block njs %}
+
+ <!-- Bootrstrap touchspin -->
+ <script src="{{url_for('static' ,filename='libs/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js')}}"></script>
+
+ <script src="{{url_for('static' ,filename='js/pages/ecommerce-cart.init.js')}}"></script>
+
+<script
+            type="text/javascript"
+            src="{{ url_for('static', filename='js/add.js') }}">
+
+  </script>
+{% endblock  %}
+
+
+

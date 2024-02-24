@@ -1,6 +1,15 @@
-Implement search button with htmx and Logout template 
-</br>
-!["Video Text](https://www.youtube.com/embed/MnrWuJeCA7s)
+
+<h3>New Card detail with store button</h3>
+<img src="vid/detail-2.png">
+
+<h3>Store page</h3>
+<img src="vid/store.png">
+<img src="vid/store2.png">
+<br/>
+
+#### Implement search button with htmx and Logout template
+
+!("Video")[https://www.youtube.com/embed/MnrWuJeCA7s]
 
 <h3>Parametre page when not connected</h3>
 <img src="vid/not-connected1.png">

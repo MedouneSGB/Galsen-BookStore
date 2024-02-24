@@ -1,28 +1,49 @@
 {% extends 'layout/base.html' %}
 
+
+
+
+
  {% block table %}
-    <div class="details">
-      <div class="item">
-          <span>Information du livre</span>
-          {%if current_user.is_authenticated%}
-                {%block btn %}
-                    <a href="{{url_for('views.update',card_id=book._id)}}" class="edit">
-                        <div class="btn">Edit</div>
-                   </a>
-                {%endblock %}
-          {%endif%}
-          <a href="{{url_for('views.card')}}">
-                <div class="btn">Fermer</div>
-          </a>
+    <div class="row">
+        <div class="details">
+              <div class="item col-xl-9 " style="margin-left: 15px;">
+                  <span>Information du livre</span>
+
+                      {%if current_user.is_authenticated%}
+                        {%block btn %}
+                            <a href="{{url_for('views.update',card_id=book._id)}}" class="edit">
+                                <div class="btn">Edit</div>
+                           </a>
+                        {%endblock %}
+                  {%endif%}
+                  <a href="{{url_for('views.card')}}">
+                        <div class="btn">Fermer</div>
+                  </a>
 
 
-      </div>
+
+
+              </div>
 
       <div class="dt">
-          <div class="item-dt">
+          <div class="item-dt col-xl-3 text-center">
               <img src="{{book.image}}" alt="{{book.nomLivre}}">
+
+              <div class="text-center " style="display: flex;justify-content: space-around">
+                <a href="{{ url_for('views.add_to_store', card_id=book._id) }}" class="btn btn-success waves-effect  mt-2 waves-light">
+                    <i class="bx bx-shopping-bag me-2"></i>Ajouter au panier
+                </a>
+
+                 <form id="add-to-cart-form" action="{{ url_for('views.store', card_id=book._id) }}" method="post" >
+                    <button type="submit" class="btn btn-primary waves-effect waves-light mt-2 me-1">
+                        <i class="bx bx-cart me-2"></i> Acheter
+                    </button>
+                </form>
           </div>
-          <div class="item-dt">
+          </div>
+
+          <div class="item-dt col-xl-6" style="margin-left: 40px;">
               <div class="val">
                     <span>Titre :</span>
                     <span>{{book.nomLivre}}</span>
@@ -42,15 +63,39 @@
                     </div>
               </div>
           </div>
+
+          <div class="col mx-5 messages">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, msg in messages %}
+                            {% if category == 'warning' %}
+                                <p id="warningAlert" class="alert alert-danger alter-dismisable fade show" role="alert">{{ msg }}</p>
+
+                            {% elif category == 'success'%}
+                                 <p id="sucessAlert"  class="alert alert-success alter-dismisable fade show" role="alert">{{ msg }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+          </div>
+
       </div>
+    </div>
     </div>
   {%endblock %}
 
 
   {%block style %}
 <style>
+    .tables {
+        /*background: white;
+        height: 100vh;*/
+    }
     .details {
-        width: 100%;
+        width: 90%;
+        margin: 0 auto;
+        background: #282828;
+        height: 90vh;
 
     }
     .details .item {
@@ -59,6 +104,7 @@
         justify-content: space-between;
         padding: 0 20px;
          font-family: "Tiro Devanagari Hindi", serif;
+
     }
     .item span {
         font-size: 24px;
@@ -102,6 +148,7 @@
         font-family: "Tiro Devanagari Hindi", serif;
          font-size: 18px;
         padding: 0 20px;
+
     }
     .val {
         padding: 15px;
@@ -131,8 +178,44 @@
     .edit {
         margin-left: 120px;
     }
+    .content {
+
+    }
+    .tables {
+         width: 95%;
+        /*max-width: 95%;*/
+    }
+    .messages h1 {
+
+    }
 
 </style>
 {%endblock %}
 
-{%block js %}{%endblock %}
+{%block njs %}
+    <script>
+
+    function dismissAlerts() {
+        setTimeout(function() {
+            var warningAlert = document.getElementById("warningAlert");
+            if (warningAlert) {
+                warningAlert.classList.remove('show');
+                warningAlert.classList.add('hide');
+            }
+
+            var successAlert = document.getElementById("sucessAlert");
+            if (successAlert) {
+                successAlert.classList.remove('show');
+                successAlert.classList.add('hide');
+            }
+        }, 3000);
+    }
+
+
+    dismissAlerts();
+</script>
+{%endblock %}
+
+{%block keus%}
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+{%endblock%}

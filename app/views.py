@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, request
+from flask import render_template, Blueprint, request, jsonify, flash, redirect, url_for
 from flask_login import login_required, current_user
 
 from app import db
@@ -62,8 +62,66 @@ def search():
     print(q)
     if q:
         q = q.strip()
-        images = Livres.query.filter(Livres.nomLivre.ilike(f'%{q}%') | Livres.author.ilike(f'%{q}%') | Livres.categorie.ilike(f'%{q}%'))
+        images = Livres.query.filter(
+            Livres.nomLivre.ilike(f'%{q}%') | Livres.author.ilike(f'%{q}%') | Livres.categorie.ilike(f'%{q}%'))
         return render_template("card/search.html", books=images, query=q)
 
     images = Livres.query.filter(Livres.image is not None).all()
     return render_template("card/card.html", books=images, query=q)
+
+
+all_books = []
+
+
+@views.route("add_store/<int:card_id>/", methods=["POST", "GET"])
+def add_to_store(card_id):
+    book = Livres.query.get(card_id)
+
+    if book:
+        if card_id in all_books:
+            flash(f"Le livre '{book.nomLivre}' est déjà dans votre panier.", "warning")
+        else:
+
+            all_books.append(card_id)
+            flash(f"Le livre '{book.nomLivre}' a été ajouté à votre panier avec succès.", "success")
+    else:
+        flash("Livre non trouvé.", "error")
+        return redirect(url_for("views.detail", card_id=book._id))
+
+    return redirect(url_for("views.detail", card_id=card_id))
+
+
+@views.route("store/<int:card_id>/", methods=["POST", "GET"])
+def store(card_id):
+    book = Livres.query.get(card_id)
+
+    if book:
+        if card_id in all_books:
+            flash(f"Le livre '{book.nomLivre}' est déjà dans votre panier.", "warning")
+        else:
+            all_books.append(card_id)
+            flash(f"Le livre '{book.nomLivre}' a été ajouté à votre panier avec succès.", "success")
+    else:
+        flash("Livre non trouvé.", "error")
+        return redirect(url_for("views.detail", card_id=card_id))
+
+    return redirect(url_for("views.shop"))
+
+
+@views.route("shop", methods=["POST", "GET"])
+def shop():
+    books = [Livres.query.get(card_id) for card_id in all_books]
+    return render_template("shop/shop.html", books=books)
+
+
+@views.route("remove_book/<int:card_id>/", methods=["POST", "GET"])
+def remove_book(card_id):
+    if card_id in all_books:
+        book = Livres.query.get(card_id)
+        all_books.remove(card_id)
+        flash(f"Le livre '{book.nomLivre}' a été supprimé de votre panier avec succès.", "success")
+    else:
+        flash("Le livre que vous essayez de supprimer n'est pas dans votre panier.", "error")
+    return redirect(url_for("views.shop"))
+
+
