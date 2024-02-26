@@ -9,13 +9,14 @@
         <div class="details">
               <div class="item col-xl-9 " style="margin-left: 15px;">
                   <span>Information du livre</span>
-
                       {%if current_user.is_authenticated%}
-                        {%block btn %}
-                            <a href="{{url_for('views.update',card_id=book._id)}}" class="edit">
-                                <div class="btn">Edit</div>
-                           </a>
-                        {%endblock %}
+                        {% if current_user.isAdmin %}
+                            {%block btn %}
+                                <a href="{{url_for('views.update',card_id=book._id)}}" class="edit">
+                                    <div class="btn">Edit</div>
+                                </a>
+                            {%endblock %}
+                        {%endif %}
                   {%endif%}
                   <a href="{{url_for('views.card')}}">
                         <div class="btn">Fermer</div>

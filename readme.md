@@ -1,26 +1,3 @@
-
-<h3>New Card detail with store button</h3>
-<img src="vid/detail-2.png">
-
-<h3>Store page</h3>
-<img src="vid/store.png">
-<img src="vid/store2.png">
-<br/>
-
-#### Implement search button with htmx and Logout template
-
-!("Video")[https://www.youtube.com/embed/MnrWuJeCA7s]
-
-<h3>Parametre page when not connected</h3>
-<img src="vid/not-connected1.png">
-<img src="vid/not-connected1.png">
-<br/>
-
-<h3>Parameter page when User is connected</h3>
-<img src="vid/connected-1.png">
-<img src="vid/connected-2.png">
-<br/>
-
 <h3>Sign up page</h3>
 <img src="vid/inscription.png">
 
@@ -55,6 +32,35 @@
 <img src="vid/detail.png">
 
 
+<h3>New Card detail with store button</h3>
+<img src="vid/detail-2.png">
+
+<h3>Store page</h3>
+<img src="vid/store.png">
+<img src="vid/store2.png">
+<br/>
+
+#### Implement search button with htmx and Logout template
+
+!("Video")[https://www.youtube.com/embed/MnrWuJeCA7s]
+
+<h3>Parametre page when not connected</h3>
+<img src="vid/not-connected1.png">
+<img src="vid/not-connected1.png">
+<br/>
+
+<h3>Parameter page when User is connected</h3>
+<img src="vid/connected-1.png">
+<img src="vid/connected-2.png">
+<br/>
+
+<h3>Now only admin can edit article</h3>
+<img src="vid/role.png">
+
+<br/>
+
+
+
 Comment lancer ce projet :
 - Installer python dans votre machine
 - Cloner le projet afin de le telecharger
@@ -78,3 +84,4 @@ Comment lancer ce projet :
     ```py 
         python main.py
     ```
+
