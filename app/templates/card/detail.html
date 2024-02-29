@@ -4,94 +4,92 @@
 
 
 
- {% block table %}
-    <div class="row">
-        <div class="details">
-              <div class="item col-xl-9 " style="margin-left: 15px;">
-                  <span>Information du livre</span>
-                      {%if current_user.is_authenticated%}
-                        {% if current_user.isAdmin %}
-                            {%block btn %}
-                                <a href="{{url_for('views.update',card_id=book._id)}}" class="edit">
-                                    <div class="btn">Edit</div>
-                                </a>
-                            {%endblock %}
-                        {%endif %}
-                  {%endif%}
-                  <a href="{{url_for('views.card')}}">
-                        <div class="btn">Fermer</div>
-                  </a>
+{% block table %}
+<div class="row">
+    <div class="details">
+        <div class="item col-xl-9 " style="margin-left: 15px;">
+            <span>Information du livre</span>
+            {%if current_user.is_authenticated%}
+            {% if current_user.isAdmin %}
+            {%block btn %}
+            <a href="{{url_for('views.update',card_id=book._id)}}" class="edit">
+                <div class="btn">Edit</div>
+            </a>
+            {%endblock %}
+            {%endif %}
+            {%endif%}
+            <a href="{{url_for('views.card')}}">
+                <div class="btn">Fermer</div>
+            </a>
+        </div>
 
+        <div class="dt">
+            <div class="item-dt col-xl-3 text-center">
+                <img src="../{{book.image}}" alt="{{book.nomLivre}}">
 
+                <div class="text-center " style="display: block;justify-content: space-around">
+                    <a href="{{ url_for('views.add_to_store', card_id=book._id) }}"
+                        class="btn btn-success waves-effect  mt-2 waves-light">
+                        <i class="bx bx-shopping-bag me-2"></i>Ajouter au panier
+                    </a>
 
+                    <form id="add-to-cart-form" action="{{ url_for('views.store', card_id=book._id) }}" method="post">
+                        <button type="submit" class="btn btn-primary waves-effect waves-light mt-2 me-1">
+                            <i class="bx bx-cart me-2"></i> Acheter
+                        </button>
+                    </form>
+                </div>
+            </div>
 
-              </div>
-
-      <div class="dt">
-          <div class="item-dt col-xl-3 text-center">
-              <img src="{{book.image}}" alt="{{book.nomLivre}}">
-
-              <div class="text-center " style="display: flex;justify-content: space-around">
-                <a href="{{ url_for('views.add_to_store', card_id=book._id) }}" class="btn btn-success waves-effect  mt-2 waves-light">
-                    <i class="bx bx-shopping-bag me-2"></i>Ajouter au panier
-                </a>
-
-                 <form id="add-to-cart-form" action="{{ url_for('views.store', card_id=book._id) }}" method="post" >
-                    <button type="submit" class="btn btn-primary waves-effect waves-light mt-2 me-1">
-                        <i class="bx bx-cart me-2"></i> Acheter
-                    </button>
-                </form>
-          </div>
-          </div>
-
-          <div class="item-dt col-xl-6" style="margin-left: 40px;">
-              <div class="val">
+            <div class="item-dt col-xl-6" style="margin-left: 40px;">
+                <div class="val">
                     <span>Titre :</span>
                     <span>{{book.nomLivre}}</span>
-              </div>
-              <div class="val">
+                </div>
+                <div class="val">
                     <span>Categorie :</span>
                     <span>{{book.categorie}}</span>
-              </div>
-              <div class="val">
-                   <span>Auteur :</span>
+                </div>
+                <div class="val">
+                    <span>Auteur :</span>
                     <span>{{book.author}}</span>
-              </div>
-              <div class="val">
+                </div>
+                <div class="val">
                     <span>Description :</span>
                     <div class="descr">
                         {{book.description}}
                     </div>
-              </div>
-          </div>
+                </div>
+            </div>
 
-          <div class="col mx-5 messages">
+            <div class="col mx-5 messages">
                 {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                        {% for category, msg in messages %}
-                            {% if category == 'warning' %}
-                                <p id="warningAlert" class="alert alert-danger alter-dismisable fade show" role="alert">{{ msg }}</p>
+                {% if messages %}
+                {% for category, msg in messages %}
+                {% if category == 'warning' %}
+                <p id="warningAlert" class="alert alert-danger alter-dismisable fade show" role="alert">{{ msg }}</p>
 
-                            {% elif category == 'success'%}
-                                 <p id="sucessAlert"  class="alert alert-success alter-dismisable fade show" role="alert">{{ msg }}</p>
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}
+                {% elif category == 'success'%}
+                <p id="sucessAlert" class="alert alert-success alter-dismisable fade show" role="alert">{{ msg }}</p>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
                 {% endwith %}
-          </div>
+            </div>
 
-      </div>
+        </div>
     </div>
-    </div>
-  {%endblock %}
+</div>
+{%endblock %}
 
 
-  {%block style %}
+{%block style %}
 <style>
     .tables {
         /*background: white;
         height: 100vh;*/
     }
+
     .details {
         width: 90%;
         margin: 0 auto;
@@ -99,18 +97,21 @@
         height: 90vh;
 
     }
+
     .details .item {
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 0 20px;
-         font-family: "Tiro Devanagari Hindi", serif;
+        font-family: "Tiro Devanagari Hindi", serif;
 
     }
+
     .item span {
         font-size: 24px;
         color: white;
     }
+
     .item .btn {
         border-radius: 15px;
         background: #D9570E;
@@ -120,19 +121,22 @@
         font-size: 24px;
 
     }
-    .details .item-dt  img {
+
+    .details .item-dt img {
         width: 243px;
         padding: 0 20px;
         margin-bottom: 10px;
 
     }
+
     .details .dt {
         margin-top: 48px;
-         display: flex;
+        display: flex;
 
 
     }
-    .item-dt .val span:nth-child(1){
+
+    .item-dt .val span:nth-child(1) {
         font-size: 20px;
         color: white;
         font-family: "Tiro Devanagari Hindi", serif;
@@ -140,64 +144,71 @@
     }
 
     .item-dt .val span:nth-child(2) {
-         font-size: 20px;
+        font-size: 20px;
         color: white;
         font-family: "Tiro Devanagari Hindi", serif;
     }
+
     .val .descr {
         color: white;
         font-family: "Tiro Devanagari Hindi", serif;
-         font-size: 18px;
+        font-size: 18px;
         padding: 0 20px;
 
     }
+
     .val {
         padding: 15px;
     }
-    .search-btn .child{
+
+    .search-btn .child {
         display: none;
     }
-    .search-btn .child:nth-child(2){
+
+    .search-btn .child:nth-child(2) {
         display: none;
     }
+
     .elements .element .choice {
-         display: none;
+        display: none;
     }
+
     .elements .element .card {
-         display: none;
+        display: none;
     }
-    .element .shop .item:nth-child(2) .btn{
+
+    .element .shop .item:nth-child(2) .btn {
         height: 40px;
         font-size: 15px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .element .shop:nth-child(2){
+
+    .element .shop:nth-child(2) {
         width: 253px;
     }
+
     .edit {
         margin-left: 120px;
     }
-    .content {
 
-    }
+    .content {}
+
     .tables {
-         width: 95%;
+        width: 95%;
         /*max-width: 95%;*/
     }
-    .messages h1 {
 
-    }
-
+    .messages h1 {}
 </style>
 {%endblock %}
 
 {%block njs %}
-    <script>
+<script>
 
     function dismissAlerts() {
-        setTimeout(function() {
+        setTimeout(function () {
             var warningAlert = document.getElementById("warningAlert");
             if (warningAlert) {
                 warningAlert.classList.remove('show');

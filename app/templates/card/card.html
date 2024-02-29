@@ -3,8 +3,8 @@
 {% block table %}
     <div class="cartes">
          {% for book in books %}
-            <a href="{{ url_for('views.detail', card_id=book._id) }}">
-                <img class="carte" src="{{book.image}}" alt="images" style="width: 126px;" >
+            <a href="{{ url_for('views.detail', card_id=book._id) }}" >
+                <img class="carte m-2" src="{{book.image}}" alt="images" style="width: 210px; height: 340px;" >
             </a>
         {% endfor %}
     </div>

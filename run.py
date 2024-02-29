@@ -10,7 +10,7 @@ app = create_app()
 def load_fixtures():
     # chemin = Path(__file__).cwd() / "fixtures" / "Livres.json"
     livres_path = os.path.join(os.path.dirname(__file__), 'app', "./fixtures/Livres.json")
-    with open(livres_path, 'r') as file:
+    with open(livres_path, 'r' , encoding='utf-8') as file:
         livres = json.load(file)
         print(livres)
 
